@@ -1,0 +1,254 @@
+section {
+  @apply text-gray-800 dark:text-white;
+}
+
+.container {
+  position: relative;
+  z-index: 10;
+}
+
+.animate-slide-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.heading-blur-shadow {
+  text-shadow: 0 0 20px rgba(58, 176, 162, 0.7);
+  &.dark {
+    text-shadow: 0 0 20px rgba(58, 176, 162, 0.7);
+  }
+  &:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+  }
+}
+
+.section-wrapper {
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+.two-column {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  position: relative;
+  gap: 20px; /* Space for vertical line */
+}
+
+.two-column .section-wrapper {
+  flex: 1;
+  max-width: none;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+}
+
+.section-heading {
+  text-shadow: 0 0 20px rgba(58, 176, 162, 0.7);
+  &.dark {
+    text-shadow: 0 0 20px rgba(58, 176, 162, 0.7);
+  }
+  &:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  background: linear-gradient(90deg, #ffffff 0%, #ffffff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  padding: 0.25rem 0;
+  text-align: center;
+ // margin-:  auto;
+}
+
+.vertical-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background: linear-gradient(180deg, #317873 0%, #3AB0A2 100%);
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.work-section .exp-card .branch {
+  position: absolute;
+  top: 50%;
+  right: -14px;
+  width: 10px;
+  height: 10px;
+  background: #3AB0A2;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.education-section .exp-card .branch {
+  position: absolute;
+  top: 50%;
+  left: -14px;
+  width: 10px;
+  height: 10px;
+  background: #3AB0A2;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.exp-card {
+  opacity: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(90deg, #317873 0%, #3AB0A2 100%);
+  border-radius: 8px;
+  touch-action: manipulation;
+  width: 100%;
+  min-height: 180px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 16px;
+}
+
+.exp-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(58, 176, 162, 1);
+}
+
+.exp-card h4,
+.exp-card p,
+.exp-card li {
+  color: #ffffff !important;
+}
+
+.exp-card h4 {
+  font-size: 22px;
+}
+
+.exp-card p,
+.exp-card li {
+  font-size: 18px;
+}
+
+.exp-card ul {
+  margin-left: 1rem;
+  padding-left: 0;
+  flex-grow: 1;
+}
+
+.exp-card li {
+  margin-bottom: 0.25rem;
+}
+
+@for $i from 0 through 1 {
+  .delay-#{$i} {
+    animation-delay: #{$i * 0.2}s;
+  }
+}
+
+@media (max-width: 640px) {
+  .summary-section {
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  .section-wrapper {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .two-column {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .two-column .section-wrapper {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .vertical-line {
+    display: none;
+  }
+
+  .work-section .exp-card .branch {
+    right: -10px;
+  }
+
+  .education-section .exp-card .branch {
+    left: -10px;
+  }
+
+  .exp-card {
+    padding: 12px;
+    width: 100%;
+    min-height: 160px;
+  }
+
+  .exp-card h4 {
+    font-size: 18px;
+  }
+
+  .exp-card p,
+  .exp-card li {
+    font-size: 16px;
+  }
+
+  .exp-card ul {
+    margin-left: 0.75rem;
+  }
+
+  .exp-card li {
+    margin-bottom: 0.2rem;
+  }
+
+  section {
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+  }
+
+  img {
+    width: 128px;
+    height: 128px;
+  }
+
+  .summary-section p {
+    font-size: 0.875rem;
+  }
+
+  .section-heading {
+    padding: 0.2rem 0;
+  }
+}

@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+body {
+  @apply font-poppins bg-blue-100 text-teal-800;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dark {
+  @apply bg-blue-900 text-blue-100;
+}
+
+
+section {
+  @apply text-gray-800 dark:text-white;
+}
+
+.container {
+  position: relative;
+  z-index: 10; /* Ensure content is above particles */
+}
+
+.animate-slide-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-out {
+  animation: fadeOut 3s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+.glow-effect {
+  box-shadow: 0 0 10px rgba(58, 176, 162, 0.5); /* keppel for both modes */
+}
+
+.dark .glow-effect {
+  box-shadow: 0 0 10px rgba(58, 176, 162, 0.5); /* keppel for dark mode */
+}
+
+.heading-blur-shadow {
+  text-shadow: 0 0 20px rgba(58, 176, 162, 0.7); /* stronger keppel glow always */
+  &.dark {
+    text-shadow: 0 0 20px rgba(58, 176, 162, 0.7); /* stronger keppel glow always */
+  }
+  &:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+  }
+}
+
+/* Card styles for About Me (exp-card) */
+.exp-card {
+  opacity: 1; /* Ensure visibility */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(90deg, #317873 0%, #3AB0A2 100%);
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(58, 176, 162, 0.5), 0 0 30px rgba(58, 176, 162, 0.3); /* Default glow */
+}
+
+.exp-card:hover {
+  transform: scale(1.05); /* Slightly larger scale for hover */
+  box-shadow: 0 0 25px rgba(58, 176, 162, 0.8), 0 0 50px rgba(58, 176, 162, 0.5); /* Enhanced glow on hover */
+}
+
+/* Ensure text is visible */
+.exp-card h4,
+.exp-card p {
+  color: #ffffff !important;
+}
+
+/* Card styles for Projects (project-card) */
+.project-card {
+  @apply transition-transform duration-200;
+  background: linear-gradient(90deg, #317873 0%, #3AB0A2 100%);
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(58, 176, 162, 0.5), 0 0 30px rgba(58, 176, 162, 0.3); /* Default glow */
+  &:hover {
+    @apply transform scale-105;
+    box-shadow: 0 0 25px rgba(58, 176, 162, 0.8), 0 0 50px rgba(58, 176, 162, 0.5); /* Enhanced glow on hover */
+  }
+  img {
+    @apply transition-opacity duration-200;
+    &:hover {
+      @apply opacity-95;
+    }
+  }
+  &:nth-child(1) { animation-delay: 0.1s; }
+  &:nth-child(2) { animation-delay: 0.2s; }
+  &:nth-child(3) { animation-delay: 0.3s; }
+}
+
+/* Form styles for Connect with Me */
+form {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 15px rgba(58, 176, 162, 0.5), 0 0 30px rgba(58, 176, 162, 0.3); /* Default glow */
+}
+
+form:hover {
+  transform: scale(1.02); /* Subtle scale for form */
+  box-shadow: 0 0 25px rgba(58, 176, 162, 0.8), 0 0 50px rgba(58, 176, 162, 0.5); /* Enhanced glow on hover */
+}

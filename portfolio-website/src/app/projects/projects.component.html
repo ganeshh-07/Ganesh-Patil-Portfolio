@@ -1,0 +1,19 @@
+<section class="relative min-h-screen py-16 pt-20 bg-azureish-white dark:bg-blue-900">
+  <app-particles></app-particles>
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-10 animate-slide-in heading-blur-shadow">
+      <span class="bg-gradient-to-r from-myrtle-green to-keppel bg-clip-text text-transparent dark:text-white">My Projects</span>
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div *ngFor="let project of projects; let i = index" class="project-card bg-gradient-to-r from-myrtle-green to-keppel dark:bg-gradient-to-r dark:from-myrtle-green dark:to-keppel p-5 rounded-lg shadow-md animate-slide-in border-none" [ngClass]="'delay-' + i">
+        <img [src]="project.image" [alt]="project.title" class="w-full h-48 sm:h-56 md:h-64 object-cover rounded-lg mb-4" loading="lazy">
+        <h3 class="text-xl sm:text-2xl font-semibold mt-4 text-white dark:text-white">{{ project.title }}</h3>
+        <p class="text-white/80 dark:text-white/80 mt-2 text-sm sm:text-base">{{ project.description }}</p>
+        <div class="skill-logos flex flex-wrap gap-2 mt-4">
+          <img *ngFor="let skill of project.skills" [src]="skill.logo" [alt]="skill.name" class="w-7 h-7 sm:w-8 sm:h-8 rounded-full object-contain skill-logo" loading="lazy" [title]="skill.name">
+        </div>
+        <a [href]="project.demoLink" class="inline-block mt-4 px-4 py-2 bg-keppel text-white rounded-full border border-white/20 dark:border-white/20 hover:bg-keppel-dark transform hover:scale-105 transition-all duration-300 text-sm sm:text-base">Live Demo</a>
+      </div>
+    </div>
+  </div>
+</section>

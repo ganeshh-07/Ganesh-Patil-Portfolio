@@ -1,0 +1,121 @@
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  padding: 1.5rem 0;
+  transition: top 0.3s ease-in-out, background-color 0.3s ease-in-out;
+
+  &.dark {
+    background-color: transparent !important;
+    color: #ffffff !important;
+    box-shadow: none;
+    border-bottom: none;
+  }
+
+  &.hide-header {
+    top: -100px;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.05);
+
+      .logo-icon {
+        filter: brightness(1.2) sepia(1) hue-rotate(30deg) saturate(2);
+      }
+
+      span {
+        transform: scale(1.05); // Subtle scale animation for text
+      }
+    }
+
+    .logo-icon {
+      width: 64px;
+      height: 64px;
+      filter: sepia(1) hue-rotate(30deg) saturate(1.5);
+      transition: filter 0.2s ease;
+    }
+
+    span {
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); // Subtle shadow for depth
+      transition: transform 0.2s ease, text-shadow 0.2s ease;
+      
+      &:hover {
+        text-shadow: 0 2px 6px rgba(58, 176, 162, 0.5); // Slightly stronger shadow on hover
+      }
+    }
+  }
+
+  .hamburger {
+    transition: transform 0.3s ease-in-out;
+
+    &.open {
+      transform: rotate(90deg);
+    }
+  }
+
+  ul {
+    list-style: none;
+    transition: all 0.3s ease-in-out;
+
+    &.mobile-menu {
+      transform: translateY(-100%);
+      opacity: 0;
+
+      &.open {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    li a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.2s ease, transform 0.2s ease;
+
+      &:hover,
+      &.active {
+        color: #3ab0a2;
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    .logo {
+      font-size: 1.25rem;
+
+      .logo-icon {
+        width: 64px;
+        height: 64px;
+      }
+    }
+
+    ul {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: rgba(31, 41, 55, 0.95);
+      backdrop-filter: blur(8px);
+      padding: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  }
+}

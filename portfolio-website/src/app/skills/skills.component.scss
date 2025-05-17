@@ -1,0 +1,106 @@
+section {
+  @apply text-gray-800 dark:text-white;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 120px);
+  gap: 3rem;
+  justify-content: center;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.animate-slide-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.heading-blur-shadow {
+  text-shadow: 0 0 15px rgba(58, 176, 162, 0.7);
+  &.dark {
+    text-shadow: 0 0 15px rgba(58, 176, 162, 0.7);
+  }
+  &:hover {
+    transform: scale(1.03);
+    transition: transform 0.3s ease-in-out;
+  }
+}
+
+.skill-card {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px rgba(58, 176, 162, 0.4), 0 0 20px rgba(58, 176, 162, 0.2);
+  touch-action: manipulation;
+}
+
+.skill-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(58, 176, 162, 0.7), 0 0 40px rgba(58, 176, 162, 0.4);
+}
+
+.skill-logo {
+  transition: filter 0.3s ease-in-out;
+  .skill-card:hover & {
+    filter: drop-shadow(0 0 8px rgba(58, 176, 162, 0.6));
+  }
+}
+
+@for $i from 0 through 4 {
+  .delay-#{$i} {
+    animation-delay: #{$i * 0.15}s;
+  }
+}
+
+.animate-pop-in {
+  opacity: 0;
+  transform: scale(0.8);
+  animation: popIn 0.4s ease-out forwards;
+}
+
+@keyframes popIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .skill-card {
+    width: 100px;
+    height: 100px;
+    padding: 0.75rem;
+  }
+
+  .skill-logo {
+    width: 32px;
+    height: 32px;
+  }
+
+  .skill-card span {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 640px) {
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+}

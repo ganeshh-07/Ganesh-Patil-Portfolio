@@ -1,0 +1,11 @@
+footer {
+  @apply border-t border-teal-700 text-gray-800 dark:text-white;
+}
+
+.social-link {
+  @apply transition-colors duration-200 inline-block;
+  pointer-events: auto;
+  &:hover {
+    @apply transform scale-110;
+  }
+}
