@@ -33,7 +33,7 @@ export class ContactComponent {
     }
 
     const formData = this.contactForm.value;
-    this.http.post('http://localhost:5000/api/contact', formData).subscribe({
+    this.http.post('https://ganesh-patil-portfolio.onrender.com/api/contact', formData).subscribe({
       next: (response: any) => {
         this.successMessage = response.message || 'Message sent successfully!';
         this.errorMessage = null;
