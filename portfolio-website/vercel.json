@@ -2,7 +2,7 @@
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/node",
+      "use": "@vercel/static-build",
       "config": {
         "buildCommand": "npx ng build --prod",
         "outputDirectory": "dist/myportfolio-website/browser"
