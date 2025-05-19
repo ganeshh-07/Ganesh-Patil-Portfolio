@@ -1,5 +1,16 @@
 {
-    "rewrites": [
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist/portfolio-website",
+        "buildCommand": "chmod +x ./node_modules/.bin/ng && ./node_modules/.bin/ng build"
+      }
+    }
+  ],
+  "rewrites": [
     {
       "source": "/(.*)",
       "destination": "/index.html"
