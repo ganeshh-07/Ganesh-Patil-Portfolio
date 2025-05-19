@@ -1,4 +1,14 @@
 {
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node",
+      "config": {
+        "buildCommand": "npx ng build --prod",
+        "outputDirectory": "dist/myportfolio-website/browser"
+      }
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
