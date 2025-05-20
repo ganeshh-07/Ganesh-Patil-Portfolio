@@ -1,7 +1,7 @@
-<section class="relative min-h-screen py-20 pt-24 bg-azureish-white dark:bg-blue-900">
+<section class="relative min-h-screen py-20 pt-24 bg-blue-900 dark:bg-blue-900">
   <app-particles></app-particles>
-  <div class="container mx-auto px-4">
-    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-myrtle-green to-keppel bg-clip-text text-transparent dark:text-white animate-slide-in heading-blur-shadow">My Skills</h2>
+  <div class="container mx-auto px-4 mt-10">
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-12 bg-gradient-to-r from-myrtle-green to-keppel bg-clip-text text-white animate-slide-in heading-blur-shadow  dark:text-white animate-slide-in heading-blur-shadow">My Skills</h2>
     <div class="grid justify-center">
       <div *ngFor="let skill of skills let i = index" class="skill-card relative flex flex-col items-center p-4 bg-gradient-to-r from-myrtle-green to-keppel dark:bg-gradient-to-r dark:from-myrtle-green dark:to-keppel rounded-lg shadow-md border-none overflow-hidden" [ngClass]="['animate-pop-in', 'delay-' + i]">
         <div class="ripple-effect"></div>

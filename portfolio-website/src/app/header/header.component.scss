@@ -41,7 +41,7 @@ header {
       }
 
       span {
-        transform: scale(1.05); // Subtle scale animation for text
+        transform: scale(1.05);
       }
     }
 
@@ -53,46 +53,70 @@ header {
     }
 
     span {
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); // Subtle shadow for depth
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
       transition: transform 0.2s ease, text-shadow 0.2s ease;
       
       &:hover {
-        text-shadow: 0 2px 6px rgba(58, 176, 162, 0.5); // Slightly stronger shadow on hover
+        text-shadow: 0 2px 6px rgba(58, 176, 162, 0.5);
       }
     }
   }
 
   .hamburger {
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.4s ease-in-out, color 0.4s ease-in-out;
 
     &.open {
-      transform: rotate(90deg);
+      transform: rotate(180deg);
+      color: #3ab0a2;
+    }
+
+    svg {
+      transition: stroke 0.4s ease-in-out;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+      stroke: #3ab0a2;
     }
   }
 
   ul {
     list-style: none;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.5s ease-in-out;
 
-    &.mobile-menu {
+    &.hidden {
       transform: translateY(-100%);
       opacity: 0;
+      visibility: hidden;
+    }
 
-      &.open {
-        transform: translateY(0);
-        opacity: 1;
-      }
+    &:not(.hidden) {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
     }
 
     li a {
       color: #ffffff;
       text-decoration: none;
-      transition: color 0.2s ease, transform 0.2s ease;
+      transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+      display: block;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
 
       &:hover,
       &.active {
         color: #3ab0a2;
         transform: scale(1.05);
+        background-color: rgba(58, 176, 162, 0.2);
+      }
+    }
+
+    @media (min-width: 768px) {
+      &.hidden {
+        transform: none;
+        opacity: 1;
+        visibility: visible;
       }
     }
   }
@@ -112,10 +136,13 @@ header {
       top: 100%;
       left: 0;
       width: 100%;
-      background: rgba(31, 41, 55, 0.95);
-      backdrop-filter: blur(8px);
-      padding: 1rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      background: linear-gradient(135deg, rgba(31, 41, 55, 0.95) 0%, rgba(58, 176, 162, 0.3) 100%);
+      backdrop-filter: blur(10px);
+      padding: 1.5rem;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      border-radius: 0 0 12px 12px;
+      transform-origin: top;
+      transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
     }
   }
 }

@@ -35,25 +35,29 @@ section {
 
 .heading-blur-shadow {
   text-shadow: 0 0 15px rgba(58, 176, 162, 0.7);
-  &.dark {
-    text-shadow: 0 0 15px rgba(58, 176, 162, 0.7);
-  }
-  &:hover {
-    transform: scale(1.03);
-    transition: transform 0.3s ease-in-out;
-  }
+}
+.heading-blur-shadow.dark {
+  text-shadow: 0 0 15px rgba(58, 176, 162, 0.7);
+}
+.heading-blur-shadow:hover {
+  transform: scale(1.03);
+  transition: transform 0.3s ease-in-out;
 }
 
 @media (max-width: 640px) {
   h2 {
-    font-size: 2rem;
+    font-size: 1.75rem; /* Slightly smaller for mobile */
+    margin-bottom: 2rem; /* More space below heading */
   }
 
   form {
     padding: 1rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  input, textarea {
+  input,
+  textarea {
     font-size: 0.875rem;
   }
 
@@ -67,7 +71,12 @@ section {
   }
 
   section {
-    padding-top: 5rem;
+    padding-top: 6rem; /* Increased padding to push content down */
     padding-bottom: 3rem;
+  }
+
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }

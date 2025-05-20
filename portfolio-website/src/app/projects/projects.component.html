@@ -1,8 +1,8 @@
-<section class="relative min-h-screen py-16 pt-20 bg-azureish-white dark:bg-blue-900">
+<section class="relative min-h-screen py-16 pt-20 bg-blue-900 dark:bg-blue-900">
   <app-particles></app-particles>
-  <div class="container mx-auto px-4">
+  <div class="container mx-auto px-4 mt-10">
     <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-10 animate-slide-in heading-blur-shadow">
-      <span class="bg-gradient-to-r from-myrtle-green to-keppel bg-clip-text text-transparent dark:text-white">My Projects</span>
+      <span class="bg-gradient-to-r from-myrtle-green to-keppel bg-clip-text text-white dark:text-white">My Projects</span>
     </h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
       <div *ngFor="let project of projects; let i = index" class="project-card bg-gradient-to-r from-myrtle-green to-keppel dark:bg-gradient-to-r dark:from-myrtle-green dark:to-keppel p-5 rounded-lg shadow-md animate-slide-in border-none" [ngClass]="'delay-' + i">

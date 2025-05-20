@@ -1,35 +1,37 @@
-<section class="relative min-h-screen flex items-center justify-center bg-azureish-white dark:bg-blue-900">
+<section class="relative min-h-screen flex items-center justify-center bg-blue-900 dark:bg-blue-900">
   <app-particles></app-particles>
   <div class="absolute inset-0 z-0 overflow-hidden">
     <div class="shape-circle animate-float absolute w-48 h-48 sm:w-64 sm:h-64 rounded-full bg-gradient-to-r from-myrtle-green/10 to-keppel/10 top-10 left-10"></div>
     <div class="shape-circle animate-float-delayed absolute w-64 h-64 sm:w-96 sm:h-96 rounded-full bg-gradient-to-r from-myrtle-green/10 to-keppel/10 bottom-20 right-20"></div>
   </div>
   <div class="container mx-auto px-4 text-center relative z-10">
-   <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-800 dark:text-white mb-4 animate-slide-in">
-  Hey, I'm <span class="glossy-name">Ganesh Patil</span>
-</h1>
-    <p class="text-xl sm:text-2xl md:text-3xl text-gray-600 dark:text-gray-300 mb-8 animate-slide-in delay-100">I'm a <span id="typed-text" class="bg-gradient-to-r from-myrtle-green to-keppel bg-clip-text text-transparent typed-text-wrapper"></span></p>
+    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 animate-slide-in dark:text-white mb-4 animate-slide-in">
+      Hey, I'm <span class="glossy-name">Ganesh Patil</span>
+    </h1>
+    <p class="text-xl sm:text-2xl md:text-3xl text-gray-300 mb-8 animate-slide-in delay-100 dark:text-gray-300 mb-8 animate-slide-in delay-100">
+      I'm a <span id="typed-text" class="bg-gradient-to-r from-myrtle-green to-keppel bg-clip-text text-transparent typed-text-wrapper"></span>
+    </p>
     <div class="flex flex-col sm:flex-row justify-center gap-4">
       <button
         (click)="togglePopup()"
         class="get-in-touch-btn inline-block px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-myrtle-green to-keppel text-white font-semibold rounded-lg hover:from-teal-800 hover:to-teal-600 transform hover:scale-105 transition-all duration-300 text-sm sm:text-base"
+        aria-label="Open contact popup"
       >
         <span class="ripple-effect"></span>
         Get in Touch
       </button>
-      <button >
       <a
         href="assets/Ganesh_Patil_Resume.pdf"
         download="Ganesh_Patil_Resume.pdf"
-        class="inline-block px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-myrtle-green to-keppel text-white font-semibold rounded-lg hover:from-teal-800 hover:to-teal-600 transform hover:scale-105 transition-all duration-300 text-sm sm:text-base"
+        class="download-cv-btn inline-block px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-myrtle-green to-keppel text-white font-semibold rounded-lg hover:from-teal-800 hover:to-teal-600 transform hover:scale-105 transition-all duration-300 text-sm sm:text-base"
+        aria-label="Download Ganesh Patil's CV"
       >
         <span class="ripple-effect"></span>
         Download CV
       </a>
-      </button>
     </div>
     <div *ngIf="showPopup" class="fixed inset-0 flex items-center justify-center z-50 animate-fade-in">
-      <div class="absolute inset-0 bg-azureish-white/80 dark:bg-blue-900/80 backdrop-blur-lg"></div>
+      <div class="absolute inset-0 bg-blue-900/80 backdrop-blur-lg dark:bg-blue-900/80 backdrop-blur-lg"></div>
       <div class="relative holographic-card popup-content bg-gradient-to-r from-myrtle-green to-keppel rounded-xl shadow-xl animate-fade-in-scale border-none p-6 sm:p-8 w-80 sm:w-96 max-w-[90%] flex flex-col items-center gap-4 sm:gap-6">
         <div class="absolute inset-0 sheen-overlay rounded-xl"></div>
         <div class="relative z-10 flex flex-col items-center gap-4 sm:gap-6">
@@ -45,6 +47,7 @@
           <button
             (click)="togglePopup()"
             class="mt-4 px-4 py-2 bg-keppel text-white font-semibold rounded-lg border border-white/20 hover:bg-keppel-dark hover:text-shadow-glow transition-all duration-300 text-sm sm:text-base"
+            aria-label="Close contact popup"
           >
             Close
           </button>

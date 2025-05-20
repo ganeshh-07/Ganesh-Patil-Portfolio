@@ -1,59 +1,61 @@
-<section class="relative min-h-screen py-16 pt-20 bg-azureish-white dark:bg-blue-900">
+<section class="relative min-h-screen py-16 pt-24 bg-blue-900 dark:bg-blue-900">
   <app-particles></app-particles>
-  <div class="container mx-auto px-4">
-    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-10 animateJUSTIFY slide-in heading-blur-shadow">
-      <span class="bg-gradient-to-r from-myrtle-green to-keppel bg-clip-text text-transparent dark:text-white mt-4">Connect with Me</span>
-    </h2>
-    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="max-w-2xl mx-auto bg-gradient-to-r from-myrtle-green to-keppel dark:bg-gradient-to-r dark:from-myrtle-green dark:to-keppel p-6 sm:p-8 rounded-2xl shadow-xl animate-slide-in border-none">
-      <div class="mb-4 sm:mb-6">
-        <label for="name" class="block text-white font-semibold mb-2 text-sm sm:text-base">Name</label>
-        <input
-          id="name"
-          formControlName="name"
-          type="text"
-          class="w-full p-2 sm:p-3 border rounded-lg bg-white/10 border-white/20 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-keppel transition-all duration-300"
-          [ngClass]="{'border-red-500 dark:border-red-400': contactForm.get('name')?.touched && contactForm.get('name')?.invalid, 'glow-effect': contactForm.get('name')?.touched && contactForm.get('name')?.valid}"
-        />
-        <p *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.hasError('required')" class="text-red-500 dark:text-red-400 text-xs sm:text-sm mt-1">Name is required.</p>
-        <p *ngIf="contactForm.get('name')?.touched && (contactForm.get('name')?.hasError('minlength') || contactForm.get('name')?.hasError('maxlength'))" class="text-red-500 dark:text-red-400 text-xs sm:text-sm mt-1">Name must be 2-50 characters.</p>
-      </div>
-      <div class="mb-4 sm:mb-6">
-        <label for="email" class="block text-white font-semibold mb-2 text-sm sm:text-base">Email</label>
-        <input
-          id="email"
-          formControlName="email"
-          type="email"
-          class="w-full p-2 sm:p-3 border rounded-lg bg-white/10 border-white/20 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-keppel transition-all duration-300"
-          [ngClass]="{'border-red-500 dark:border-red-400': contactForm.get('email')?.touched && contactForm.get('email')?.invalid, 'glow-effect': contactForm.get('email')?.touched && contactForm.get('email')?.valid}"
-        />
-        <p *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.hasError('required')" class="text-red-500 dark:text-red-400 text-xs sm:text-sm mt-1">Email is required.</p>
-        <p *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.hasError('email')" class="text-red-500 dark:text-red-400 text-xs sm:text-sm mt-1">Enter a valid email.</p>
-      </div>
-      <div class="mb-4 sm:mb-6">
-        <label for="message" class="block text-white font-semibold mb-2 text-sm sm:text-base">Message</label>
-        <textarea
-          id="message"
-          formControlName="message"
-          class="w-full p-2 sm:p-3 border rounded-lg bg-white/10 border-white/20 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-keppel transition-all duration-300"
-          rows="4"
-          [ngClass]="{'border-red-500 dark:border-red-400': contactForm.get('message')?.touched && contactForm.get('message')?.invalid, 'glow-effect': contactForm.get('message')?.touched && contactForm.get('message')?.valid}"
-        ></textarea>
-        <p *ngIf="contactForm.get('message')?.touched && contactForm.get('message')?.hasError('required')" class="text-red-500 dark:text-red-400 text-xs sm:text-sm mt-1">Message is required.</p>
-        <p *ngIf="contactForm.get('message')?.touched && (contactForm.get('message')?.hasError('minlength') || contactForm.get('message')?.hasError('maxlength'))" class="text-red-500 dark:text-red-400 text-xs sm:text-sm mt-1">Message must be 10-1000 characters.</p>
-      </div>
-      <div *ngIf="successMessage" class="mb-4 sm:mb-6 p-3 sm:p-4 bg-green-100/50 dark:bg-green-900/50 text-green-700 dark:text-green-200 rounded-lg animate-fade-out text-xs sm:text-sm">
-        {{ successMessage }}
-      </div>
-      <div *ngIf="errorMessage" class="mb-4 sm:mb-6 p-3 sm:p-4 bg-red-100/50 dark:bg-red-900/50 text-red-700 dark:text-red-200 rounded-lg text-xs sm:text-sm">
-        {{ errorMessage }}
-      </div>
-      <button
-        type="submit"
-        class="w-full p-2 sm:p-3 bg-keppel text-white font-semibold rounded-lg border border-white/20 hover:bg-keppel-dark transform hover:scale-105 transition-all duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed disabled:transform-none text-sm sm:text-base"
-        [disabled]="contactForm.invalid"
-      >
-        Send Message
-      </button>
-    </form>
+  <div class="container mx-auto px-4 flex justify-center">
+    <div class="w-full max-w-2xl mt-10">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-12 sm:mb-16 animate-slide-in heading-blur-shadow">
+        <span class="bg-gradient-to-r from-myrtle-green to-keppel bg-clip-text text-white dark:text-white">Connect with Me</span>
+      </h2>
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="w-full bg-gradient-to-r from-myrtle-green to-keppel p-6 sm:p-8 rounded-2xl shadow-xl animate-slide-in border-none dark:bg-gradient-to-r dark:from-myrtle-green dark:to-keppel">
+        <div class="mb-4 sm:mb-6">
+          <label for="name" class="block text-white font-semibold mb-2 text-sm sm:text-base">Name</label>
+          <input
+            id="name"
+            formControlName="name"
+            type="text"
+            class="w-full p-2 sm:p-3 border rounded-lg bg-white/10 border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-keppel transition-all duration-300 dark:text-white"
+            [ngClass]="{'border-red-400 dark:border-red-400': contactForm.get('name')?.touched && contactForm.get('name')?.invalid, 'glow-effect': contactForm.get('name')?.touched && contactForm.get('name')?.valid}"
+          />
+          <p *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.hasError('required')" class="text-red-400 text-xs sm:text-sm mt-1 dark:text-red-400">Name is required.</p>
+          <p *ngIf="contactForm.get('name')?.touched && (contactForm.get('name')?.hasError('minlength') || contactForm.get('name')?.hasError('maxlength'))" class="text-red-400 text-xs sm:text-sm mt-1 dark:text-red-400">Name must be 2-50 characters.</p>
+        </div>
+        <div class="mb-4 sm:mb-6">
+          <label for="email" class="block text-white font-semibold mb-2 text-sm sm:text-base">Email</label>
+          <input
+            id="email"
+            formControlName="email"
+            type="email"
+            class="w-full p-2 sm:p-3 border rounded-lg bg-white/10 border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-keppel transition-all duration-300 dark:text-white"
+            [ngClass]="{'border-red-400 dark:border-red-400': contactForm.get('email')?.touched && contactForm.get('email')?.invalid, 'glow-effect': contactForm.get('email')?.touched && contactForm.get('email')?.valid}"
+          />
+          <p *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.hasError('required')" class="text-red-400 dark:text-red-400 text-xs sm:text-sm mt-1">Email is required.</p>
+          <p *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.hasError('email')" class="text-red-400 dark:text-red-400 text-xs sm:text-sm mt-1">Enter a valid email.</p>
+        </div>
+        <div class="mb-4 sm:mb-6">
+          <label for="message" class="block text-white font-semibold mb-2 text-sm sm:text-base">Message</label>
+          <textarea
+            id="message"
+            formControlName="message"
+            class="w-full p-2 sm:p-3 border rounded-lg bg-white/10 border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-keppel transition-all duration-300 dark:text-white"
+            rows="4"
+            [ngClass]="{'border-red-400 dark:border-red-400': contactForm.get('message')?.touched && contactForm.get('message')?.invalid, 'glow-effect': contactForm.get('message')?.touched && contactForm.get('message')?.valid}"
+          ></textarea>
+          <p *ngIf="contactForm.get('message')?.touched && contactForm.get('message')?.hasError('required')" class="text-red-400 text-xs sm:text-sm mt-1 dark:text-red-400">Message is required.</p>
+          <p *ngIf="contactForm.get('message')?.touched && (contactForm.get('message')?.hasError('minlength') || contactForm.get('message')?.hasError('maxlength'))" class="text-red-400 text-xs sm:text-sm mt-1 dark:text-red-400">Message must be 10-1000 characters.</p>
+        </div>
+        <div *ngIf="successMessage" class="mb-4 sm:mb-6 p-3 sm:p-4 bg-green-900/50 dark:bg-green-900/50 text-green-200 rounded-lg animate-fade-out text-xs sm:text-sm">
+          {{ successMessage }}
+        </div>
+        <div *ngIf="errorMessage" class="mb-4 sm:mb-6 p-3 sm:p-4 bg-red-900/50 dark:bg-red-900/50 text-red-200 rounded-lg text-xs sm:text-sm">
+          {{ errorMessage }}
+        </div>
+        <button
+          type="submit"
+          class="w-full p-2 sm:p-3 bg-keppel text-white font-semibold rounded-lg border border-white/20 hover:bg-keppel-dark transform hover:scale-105 transition-all duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed disabled:transform-none text-sm sm:text-base"
+          [disabled]="contactForm.invalid"
+        >
+          Send Message
+        </button>
+      </form>
+    </div>
   </div>
 </section>

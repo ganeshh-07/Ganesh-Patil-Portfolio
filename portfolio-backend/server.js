@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors({ origin: 'http://localhost:4200' }));
+app.use(cors({  origin: ['https://ganesh-patil-portfolio.netlify.app/','http://localhost:4200'], credentials: true}));
 app.use(express.json());
 
 // Routes
