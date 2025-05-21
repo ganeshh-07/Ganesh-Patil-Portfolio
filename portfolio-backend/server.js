@@ -10,7 +10,26 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors({  origin: ['https://ganesh-patil-portfolio.netlify.app/','http://localhost:4200'], credentials: true}));
+// Middleware
+const allowedOrigins = ['https://ganesh-patil-portfolio.netlify.app', 'http://localhost:4200'];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+}));
+
+// ✅ Handle preflight requests explicitly
+app.options('*', cors());
+
+
 app.use(express.json());
 
 // Routes
